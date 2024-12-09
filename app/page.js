@@ -16,6 +16,27 @@ export default function Home() {
   const [result, setResult] = useState(null)
   const [loading, setLoading] = useState(false)
 
+  // Add refs for scroll targets
+  const uploadSectionRef = useRef(null)
+  const howToUseSectionRef = useRef(null)
+
+  // Scroll handler functions
+  const scrollToUpload = () => {
+    uploadSectionRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  const scrollToHowToUse = () => {
+    howToUseSectionRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  const headerRef = useRef(null);
+  const featuresRef = useRef(null);
+  const footerRef = useRef(null);
+
+  const scrollToHeader = () => headerRef.current?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToFeatures = () => featuresRef.current?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToFooter = () => footerRef.current?.scrollIntoView({ behavior: 'smooth' });
+
   const handleImageChange = (e) => {
     const file = e.target.files[0]
     if (file) {
@@ -123,12 +144,17 @@ export default function Home() {
   return (
 
     <div className="min-h-screen flex flex-col">
-      <Navbar />
+      <Navbar
+        scrollToHeader={scrollToHeader}
+        scrollToFeatures={scrollToFeatures}
+        scrollToFooter={scrollToFooter}
+      />
+
       <main className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 p-8">
         <div className="max-w-6xl mx-auto">
 
-          {/* Header section */}
-          <header className="text-center mb-16 relative">
+          {/* Header section with updated button onClick handlers */}
+          <header ref={headerRef} className="text-center mb-16 relative">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 blur-3xl -z-10"></div>
             <h1 className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-6">
               FoodLens AI
@@ -138,16 +164,20 @@ export default function Home() {
               Get instant nutritional insights, ingredients, and culinary details with just a photo.
             </p>
             <div className="flex justify-center gap-4 mt-8">
-              <button className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full text-white font-semibold hover:from-blue-600 hover:to-purple-600 transition-all duration-300 shadow-lg hover:shadow-blue-500/25">
+              <button
+                onClick={scrollToUpload}
+                className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full text-white font-semibold hover:from-blue-600 hover:to-purple-600 transition-all duration-300 shadow-lg hover:shadow-blue-500/25">
                 Try Now
               </button>
-              <button className="px-8 py-3 bg-gray-800 rounded-full text-gray-300 font-semibold hover:bg-gray-700 transition-all duration-300 border border-gray-700">
+              <button
+                onClick={scrollToHowToUse}
+                className="px-8 py-3 bg-gray-800 rounded-full text-gray-300 font-semibold hover:bg-gray-700 transition-all duration-300 border border-gray-700">
                 Learn More
               </button>
             </div>
           </header>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8" ref={uploadSectionRef}>
 
             {/* Enhanced Upload Section */}
             <div className="bg-gray-800 rounded-lg shadow-xl p-6 border border-gray-700">
@@ -257,10 +287,12 @@ export default function Home() {
           </div>
 
           {/* How to Use Section */}
-          <HowToUseSection />
+          <div ref={howToUseSectionRef}>
+            <HowToUseSection />
+          </div>
 
           {/* Features Section */}
-          <div className="mt-24 relative">
+          <div ref={featuresRef} className="mt-24 relative">
             <div className="absolute inset-0 bg-gradient-to-b from-blue-600/10 to-purple-600/10 blur-3xl -z-10"></div>
             <h2 className="text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-16">
               Why Choose FoodLens AI?
@@ -315,7 +347,12 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <Footer />
+
+      {/* Footer Section */}
+      <div ref={footerRef}>
+        <Footer />
+      </div>
+
     </div>
 
 
