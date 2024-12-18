@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FoodLens AI
 
-## Getting Started
+Discover the story behind every dish with **FoodLens AI**, an advanced AI-powered food recognition platform. Identify food items instantly and access detailed nutritional insights, ingredient breakdowns, and culinary origins with just a photo.
 
-First, run the development server:
+## Features
+- **AI Food Recognition**: Identify dishes and food items using state-of-the-art AI technology.
+- **Nutritional Insights**: Get a breakdown of calories, protein, carbohydrates, fats, and more.
+- **Ingredient Analysis**: Discover the main ingredients in any dish.
+- **Culinary Details**: Learn about preparation time, serving sizes, and flavor profiles.
+- **Real-Time Results**: Powered by Google Generative AI and integrated with Vercel for a seamless experience.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Live Demo
+This project is hosted on [Vercel](https://vercel.com). Check out the live demo [here](https://foodlens-ai.vercel.app)!
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation
+To run this project locally, follow these steps:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/RatneshKJaiswal/food-identifier
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Navigate to the project directory:
+   ```bash
+   cd foodlens-ai
+   ```
 
-## Learn More
+3. Install the required dependencies:
+   ```bash
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. Open your browser and navigate to `http://localhost:3000`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Technologies Used
+- **Framework**: Next.js
+- **Styling**: Tailwind CSS
+- **Hosting**: Vercel
+- **AI Model**: Google Generative AI (Gemini-1.5)
+- **Icons**: Lucide-react
 
-## Deploy on Vercel
+## Folder Structure
+- `globals.css`: Contains global styling using Tailwind CSS.
+- `layout.js`: Defines the root layout and includes metadata.
+- `page.js`: The main page implementation, including features like image upload and AI food recognition.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## How It Works
+1. Upload a food image or capture one using your camera.
+2. The AI model analyzes the image and provides detailed information in JSON format.
+3. View nutritional data, ingredients, and other details about the dish.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contributing
+We welcome contributions! Please follow these steps to contribute:
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Commit your changes (`git commit -m 'Add feature'`).
+4. Push the branch (`git push origin feature-branch`).
+5. Create a pull request.
+
+## License
+This project is licensed under the [MIT License](LICENSE).
+
+## Acknowledgments
+- Powered by [Google Generative AI](https://ai.google/).
+- Hosted on [Vercel](https://vercel.com).
+
+---
+
+Feel free to explore, contribute, and share feedback to make **FoodLens AI** even better!
+
